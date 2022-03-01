@@ -1,3 +1,4 @@
+import { ApiService } from './../services/api.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor() { }
+  data = '';
+
+  constructor(
+    private apiService: ApiService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  getData() {
+    this.apiService.getData().subscribe(res => {
+      this.data = JSON.stringify(res);
+    });
   }
 
 }

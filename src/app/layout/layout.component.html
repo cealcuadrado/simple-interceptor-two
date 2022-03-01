@@ -1,1 +1,7 @@
-<p>layout works!</p>
+<button class="btn btn-primary" (click)="getData()">
+  Get Data
+</button>
+
+<div *ngIf="data">
+  <p>{{data}}</p>
+</div>
